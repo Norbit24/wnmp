@@ -5,6 +5,8 @@
     -   like --cargs="-m 10 -c 1024"
     -   "c" for memcached "args" for arguments
 -   create "lnk" files? Maybe...
+-   learn NSIS
+-   create installer to grab latest PHP/MySQL/NGINX/Memcached
 -   learn more python to be more efficient at it (hehe)
 
 
