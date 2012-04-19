@@ -13,22 +13,24 @@ def start_server():
     os.system("start mysql\\bin\\mysqld")
 
   if "c" not in argList:
-    os.system("start /B memcached\memcached.exe -m 10 -c 1024")
+    os.system("start /B memcached\\memcached.exe -m 10 -c 1024")
 
   if "n" not in argList:
-    os.chdir("nginx")
-    os.system("start /B nginx")
+    os.system("start /B nginx\\nginx -p nginx")
 
 
 def stop_server():
-  os.system("taskkill /f /IM nginx.exe")
+  os.system("nginx\\nginx.exe -p nginx -s quit")
   os.system("taskkill /f /IM php-cgi.exe")
   os.system("taskkill /f /IM mysqld.exe")
   os.system("taskkill /f /IM memcached.exe")
 
 
 def restart_server():
-  pass
+  os.system("taskkill /f /IM mysqld.exe && start mysql\\bin\\mysqld")
+  os.system("taskkill /f /IM php-cgi.exe && start /B php\\php-cgi.exe -b 127.0.0.1:9000 -c php\\php.ini")
+  os.system("taskkill /f /IM memcached.exe && start /B memcached\\memcached.exe -m 10 -c 1024")
+  os.system("nginx\\nginx.exe -p nginx -s quit && start /B nginx\\nginx -p nginx")
 
 
 if __name__ == "__main__":
@@ -41,7 +43,8 @@ if __name__ == "__main__":
 
       stop        Stops server and all daemons
 
-      restart     Nothing (right now)
+      restart     Restarts the server. Does not start daemons previously 
+                  not run using arguments below.
 
       Arguments (OPTIONS):
 
