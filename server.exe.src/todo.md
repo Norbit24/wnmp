@@ -1,6 +1,7 @@
 # To-Do List
 
--   make `serve restart` cleanly shutdown items and restart them
+-   make `serve restart` cleanly shutdown items and restart them !! DONE
+-   correct issue with no args blowing out a Python error
 -   add args for each component 
     -   like --cargs="-m 10 -c 1024"
     -   "c" for memcached "args" for arguments
