@@ -31,7 +31,8 @@ After each package has been placed in the correct folder then run the serve.exe 
 
       stop        Stops server and all daemons
 
-      restart     Nothing (right now)
+      restart     Restarts the server. Does not start daemons previously 
+                  not run using arguments below.
 
       Arguments (OPTIONS):
 

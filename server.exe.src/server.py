@@ -10,7 +10,7 @@ def start_server():
     os.system("start /B php\\php-cgi.exe -b 127.0.0.1:9000 -c php\\php.ini")
 
   if "m" not in argList:
-    os.system("start mysql\\bin\\mysqld")
+    os.system("start /B mysql\\bin\\mysqld")
 
   if "c" not in argList:
     os.system("start /B memcached\\memcached.exe -m 10 -c 1024")
@@ -35,7 +35,7 @@ def restart_server():
 
 if __name__ == "__main__":
   if "--help" in sys.argv[1:]:
-    print """Portable NPM2 Server Help:
+    print """Portable WNMP Server Help:
 
       Usage: server.py [serve|stop|restart] OPTIONS
 
