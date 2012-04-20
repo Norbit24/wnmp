@@ -76,7 +76,7 @@ Make sure to create a my.ini file in the mysql folder. It is important that you 
 
 ### Memcached
 
-The start_server.bat file loads memcached using only 10MB of RAM by default. If you need more, start memcached separately:
+This program loads memcached using only 10MB of RAM by default. If you need more, start memcached separately:
 
     start /B memcached\memcached.exe -m 10 -c 1024
     server serve -c
