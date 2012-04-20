@@ -32,31 +32,35 @@ def restart_server():
   os.system("taskkill /f /IM memcached.exe && start /B memcached\\memcached.exe -m 10 -c 1024")
   os.system("nginx\\nginx.exe -p nginx -s quit && start /B nginx\\nginx -p nginx")
 
+def usage():
+  print """Portable WNMP Server Help:
+
+  Usage: server.py [serve|stop|restart] OPTIONS
+
+  serve       Starts the server and daemons
+
+  stop        Stops server and all daemons
+
+  restart     Restarts the server. Does not start daemons previously 
+              not run using arguments below.
+
+  Arguments (OPTIONS):
+
+  -p          Do not run PHP (ensure nginx.conf is configured properly)
+
+  -m          Do not run MySQL
+
+  -c          Do not run Memcache daemon
+
+  -n          Do not start Nginx (but why?)"""
 
 if __name__ == "__main__":
+  if not sys.argv[1:]:
+    print "No command given, see usage:"
+    usage()
+    sys.exit()
   if "--help" in sys.argv[1:]:
-    print """Portable WNMP Server Help:
-
-      Usage: server.py [serve|stop|restart] OPTIONS
-
-      serve       Starts the server and daemons
-
-      stop        Stops server and all daemons
-
-      restart     Restarts the server. Does not start daemons previously 
-                  not run using arguments below.
-
-      Arguments (OPTIONS):
-
-      -p          Do not run PHP (ensure nginx.conf is configured properly)
-
-      -m          Do not run MySQL
-
-      -c          Do not run Memcache daemon
-
-      -n          Do not start Nginx (but why?)
-
-    """
+    usage()
   elif sys.argv[1] == "serve":
     start_server()
   elif sys.argv[1] == "stop":
@@ -64,4 +68,6 @@ if __name__ == "__main__":
   elif sys.argv[1] == "restart":
     restart_server()
   else:
-    print "Nothing Done. Did you try the correct command? [serve|stop|restart]"
+    print """Nothing Done. Did you try the correct command? [serve|stop|restart] 
+
+    Try 'server --help'"""
