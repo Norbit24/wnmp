@@ -5,9 +5,9 @@
 -   add args for each component 
     -   like --cargs="-m 10 -c 1024"
     -   "c" for memcached "args" for arguments
--   create "lnk" files? Maybe...
+-   create "lnk" files? Maybe... !! Done...for now, getting a GUI will better serve this
 -   learn NSIS
--   create installer to grab latest PHP/MySQL/NGINX/Memcached
+-   create installer to grab latest PHP/MySQL/NGINX/Memcached !! Done but want to move to NSIS
 -   learn more python to be more efficient at it (hehe)
 
 
