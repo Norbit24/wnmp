@@ -21,6 +21,19 @@ Ever wanted a complete, fast, easy-to-use web server that you could put anywhere
     
     phpMyAdmin makes managing MySQL databases easy. Download the phpMyAdmin files and place it in www/phpmyadmin/ (requires PHP to be installed!).
 
+## New Installer Script (Basic)
+
+-   **install.exe** Installation Script
+
+    Newly built install script can facilitate in installation of all necessary components. It is a very rough version that doesn't tell you much of anything and might break when new versions are released. But don't let that scare you.
+-   Latest Versions
+
+    The script should pull the latest versions of Nginx, PHP, MySQL and Memcached (windows binary). If you have issues let me know.
+-   Usage:
+    Similar to the server file, use one of the same argument switches to keep from installing something. For instance, `install -m` will install everything but MySQL.
+
+---
+
 # Running the Server
 
 After each package has been placed in the correct folder then run the serve.exe with the following options:
@@ -58,6 +71,10 @@ After each package has been placed in the correct folder then run the serve.exe 
 
     server.exe stop
 
+## Shortcuts
+
+There are 3 .vbs files you can use as "Window's Shortcuts". `start.vbs` defaults to a full run, so PHP, MySQL, Nginx and Memcached must be available. `stop.vbs` and `restart.vbs` do not depend on full install. These allow you to not have to open a _cmd_ window just to start/stop/restart the server. Double click these from Windows Explorer and you'll be off and running.
+
 ---
 
 # Notes
@@ -88,3 +105,5 @@ Will work on a way to integrate the options for this in the server file, but rig
 David Pennington: <http://xeoncross.com> | <http://code2design.com>
 
 Trae Blain: <http://traeblain.com/>
+
+Version: 0.12
